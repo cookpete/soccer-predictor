@@ -1,0 +1,173 @@
+[
+  {
+    "name": "Team A",
+    "played": 2,
+    "wins": 2,
+    "draws": 0,
+    "losses": 0,
+    "goals": {
+      "for": 4,
+      "against": 1
+    },
+    "form": [
+      "W",
+      "W"
+    ],
+    "home": {
+      "played": 1,
+      "wins": 1,
+      "draws": 0,
+      "losses": 0,
+      "goals": {
+        "for": 1,
+        "against": 0
+      },
+      "form": [
+        "W"
+      ]
+    },
+    "away": {
+      "played": 1,
+      "wins": 1,
+      "draws": 0,
+      "losses": 0,
+      "goals": {
+        "for": 3,
+        "against": 1
+      },
+      "form": [
+        "W"
+      ]
+    },
+    "stats": {
+      "as": 1.5,
+      "dw": 0.375,
+      "home": {
+        "as": 0.75,
+        "dw": 0.1
+      },
+      "away": {
+        "as": 2.25,
+        "dw": 0.75
+      },
+      "expectedGoals": {
+        "home": 1.3333333333333333,
+        "away": 1.3333333333333333
+      }
+    }
+  },
+  {
+    "name": "Team B",
+    "played": 2,
+    "wins": 1,
+    "draws": 0,
+    "losses": 1,
+    "goals": {
+      "for": 2,
+      "against": 2
+    },
+    "form": [
+      "L",
+      "W"
+    ],
+    "home": {
+      "played": 1,
+      "wins": 1,
+      "draws": 0,
+      "losses": 0,
+      "goals": {
+        "for": 2,
+        "against": 1
+      },
+      "form": [
+        "W"
+      ]
+    },
+    "away": {
+      "played": 1,
+      "wins": 0,
+      "draws": 0,
+      "losses": 1,
+      "goals": {
+        "for": 0,
+        "against": 1
+      },
+      "form": [
+        "L"
+      ]
+    },
+    "stats": {
+      "as": 0.75,
+      "dw": 0.75,
+      "home": {
+        "as": 1.5,
+        "dw": 0.75
+      },
+      "away": {
+        "as": 0.1,
+        "dw": 0.75
+      },
+      "expectedGoals": {
+        "home": 1.3333333333333333,
+        "away": 1.3333333333333333
+      }
+    }
+  },
+  {
+    "name": "Team C",
+    "played": 2,
+    "wins": 0,
+    "draws": 0,
+    "losses": 2,
+    "goals": {
+      "for": 2,
+      "against": 5
+    },
+    "form": [
+      "L",
+      "L"
+    ],
+    "home": {
+      "played": 1,
+      "wins": 0,
+      "draws": 0,
+      "losses": 1,
+      "goals": {
+        "for": 1,
+        "against": 3
+      },
+      "form": [
+        "L"
+      ]
+    },
+    "away": {
+      "played": 1,
+      "wins": 0,
+      "draws": 0,
+      "losses": 1,
+      "goals": {
+        "for": 1,
+        "against": 2
+      },
+      "form": [
+        "L"
+      ]
+    },
+    "stats": {
+      "as": 0.75,
+      "dw": 1.875,
+      "home": {
+        "as": 0.75,
+        "dw": 2.25
+      },
+      "away": {
+        "as": 0.75,
+        "dw": 1.5
+      },
+      "expectedGoals": {
+        "home": 1.3333333333333333,
+        "away": 1.3333333333333333
+      }
+    }
+  }
+]

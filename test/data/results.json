@@ -1,0 +1,20 @@
+[
+  {
+    "homeTeamName": "Team A",
+    "awayTeamName": "Team B",
+    "homeGoals": 1,
+    "awayGoals": 0
+  },
+  {
+    "homeTeamName": "Team B",
+    "awayTeamName": "Team C",
+    "homeGoals": 2,
+    "awayGoals": 1
+  },
+  {
+    "homeTeamName": "Team C",
+    "awayTeamName": "Team A",
+    "homeGoals": 1,
+    "awayGoals": 3
+  }
+]
