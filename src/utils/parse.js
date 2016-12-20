@@ -1,6 +1,7 @@
 const MATCH_NEWLINE = /\s*[\r\n]+\s*/g
+const DEFAULT_DELIMITER = /\s*,\s*/
 
-export function parseCSV (string, delimiter = ',') {
+export function parseCSV (string, delimiter = DEFAULT_DELIMITER) {
   const lines = string.split(MATCH_NEWLINE)
   const headers = lines[0].split(delimiter)
 
@@ -10,7 +11,7 @@ export function parseCSV (string, delimiter = ',') {
 }
 
 function filterLine (line) {
-  return /\S/.test(line) // Returns false when line is just whitespace
+  return /[^ ,]/.test(line) // Returns false when line is just whitespace or commas
 }
 
 // Use arrays of headers and data to create an object where
