@@ -24,7 +24,7 @@ export function calculateProbabilities (homeTeam, awayTeam) {
 }
 
 function scorecast (homeExpectedGoals, awayExpectedGoals) {
-  const result = { home: 0, away: 0 }
+  const result = { home: 0, away: 0, draw: 0 }
   const scores = []
   const under = {
     '0.5': 0,
@@ -49,6 +49,7 @@ function scorecast (homeExpectedGoals, awayExpectedGoals) {
 
       // Home/away win
       if (h > a) result.home += probability
+      if (h === a) result.draw += probability
       if (h < a) result.away += probability
 
       // Scores
@@ -68,8 +69,6 @@ function scorecast (homeExpectedGoals, awayExpectedGoals) {
       }
     }
   }
-
-  result.draw = 1 - result.home - result.away
 
   return {
     result,
