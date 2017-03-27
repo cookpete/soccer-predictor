@@ -14,9 +14,64 @@ export function analyseResults (results, getMatchDetails) {
     throw new Error('Second parameter must be a function')
   }
 
-  let teams = results.reduce(function (teams, match) {
-    return matchReducer(teams, getMatchDetails(match))
-  }, {})
+  let teams = {}
+
+  for (let result of results) {
+    const { homeTeamName, awayTeamName, homeGoals, awayGoals } = getMatchDetails(result)
+
+    const homeTeam = teams[homeTeamName] || newTeam()
+    const awayTeam = teams[awayTeamName] || newTeam()
+
+    homeTeam.played++
+    homeTeam.home.played++
+    homeTeam.goals.for += homeGoals
+    homeTeam.goals.against += awayGoals
+    homeTeam.home.goals.for += homeGoals
+    homeTeam.home.goals.against += awayGoals
+
+    awayTeam.played++
+    awayTeam.away.played++
+    awayTeam.goals.for += awayGoals
+    awayTeam.goals.against += homeGoals
+    awayTeam.away.goals.for += awayGoals
+    awayTeam.away.goals.against += homeGoals
+
+    if (homeGoals > awayGoals) {
+      homeTeam.wins++
+      homeTeam.home.wins++
+      homeTeam.form.push('W')
+      homeTeam.home.form.push('W')
+      awayTeam.losses++
+      awayTeam.away.losses++
+      awayTeam.form.push('L')
+      awayTeam.away.form.push('L')
+    }
+
+    if (homeGoals === awayGoals) {
+      homeTeam.draws++
+      homeTeam.home.draws++
+      homeTeam.form.push('D')
+      homeTeam.home.form.push('D')
+      awayTeam.draws++
+      awayTeam.away.draws++
+      awayTeam.form.push('D')
+      awayTeam.away.form.push('D')
+    }
+
+    if (homeGoals < awayGoals) {
+      homeTeam.losses++
+      homeTeam.home.losses++
+      homeTeam.form.push('L')
+      homeTeam.home.form.push('L')
+      awayTeam.wins++
+      awayTeam.away.wins++
+      awayTeam.form.push('W')
+      awayTeam.away.form.push('W')
+    }
+
+    teams[homeTeamName] = homeTeam
+    teams[awayTeamName] = awayTeam
+  }
 
   const averages = getAverages(results, getMatchDetails, teams)
 
@@ -27,64 +82,6 @@ export function analyseResults (results, getMatchDetails) {
       stats: getTeamStats(teams[name], averages)
     }
   })
-}
-
-function matchReducer (teams, { homeTeamName, awayTeamName, homeGoals, awayGoals }) {
-  const homeTeam = teams[homeTeamName] || newTeam()
-  const awayTeam = teams[awayTeamName] || newTeam()
-
-  homeTeam.played++
-  homeTeam.home.played++
-  homeTeam.goals.for += homeGoals
-  homeTeam.goals.against += awayGoals
-  homeTeam.home.goals.for += homeGoals
-  homeTeam.home.goals.against += awayGoals
-
-  awayTeam.played++
-  awayTeam.away.played++
-  awayTeam.goals.for += awayGoals
-  awayTeam.goals.against += homeGoals
-  awayTeam.away.goals.for += awayGoals
-  awayTeam.away.goals.against += homeGoals
-
-  if (homeGoals > awayGoals) {
-    homeTeam.wins++
-    homeTeam.home.wins++
-    homeTeam.form.push('W')
-    homeTeam.home.form.push('W')
-    awayTeam.losses++
-    awayTeam.away.losses++
-    awayTeam.form.push('L')
-    awayTeam.away.form.push('L')
-  }
-
-  if (homeGoals === awayGoals) {
-    homeTeam.draws++
-    homeTeam.home.draws++
-    homeTeam.form.push('D')
-    homeTeam.home.form.push('D')
-    awayTeam.draws++
-    awayTeam.away.draws++
-    awayTeam.form.push('D')
-    awayTeam.away.form.push('D')
-  }
-
-  if (homeGoals < awayGoals) {
-    homeTeam.losses++
-    homeTeam.home.losses++
-    homeTeam.form.push('L')
-    homeTeam.home.form.push('L')
-    awayTeam.wins++
-    awayTeam.away.wins++
-    awayTeam.form.push('W')
-    awayTeam.away.form.push('W')
-  }
-
-  return {
-    ...teams,
-    [homeTeamName]: homeTeam,
-    [awayTeamName]: awayTeam
-  }
 }
 
 function newTeam () {
@@ -110,14 +107,13 @@ function getAverages (results, getMatchDetails, teams) {
     expectedGoals: { home: [], away: [] } // Same for all teams
   }
 
-  averages = results.reduce((averages, match) => {
+  for (let match of results) {
     const { homeGoals, awayGoals } = getMatchDetails(match)
     averages.expectedGoals.home.push(homeGoals)
     averages.expectedGoals.away.push(awayGoals)
-    return averages
-  }, averages)
+  }
 
-  averages = Object.keys(teams).reduce((averages, key) => {
+  for (let key of Object.keys(teams)) {
     const team = teams[key]
     averages.for.push(team.goals.for)
     averages.against.push(team.goals.against)
@@ -125,12 +121,13 @@ function getAverages (results, getMatchDetails, teams) {
     averages.home.against.push(team.home.goals.against)
     averages.away.for.push(team.away.goals.for)
     averages.away.against.push(team.away.goals.against)
-    return averages
-  }, averages)
+  }
 
   return iterate(averages, average)
 }
 
+// as: Attacking strength
+// dw: Defense weakness
 function getTeamStats (team, averages) {
   return {
     as: getScore(team.goals.for / averages.for),
