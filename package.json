@@ -2,7 +2,7 @@
   "name": "soccer-predictor",
   "version": "0.0.1",
   "description": "Use basic maths to make soccer predictions",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "lint": "standard --verbose | snazzy",
     "test": "mocha test --compilers js:babel-core/register",
