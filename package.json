@@ -1,7 +1,7 @@
 {
   "name": "soccer-predictor",
   "version": "0.0.1",
-  "description": "Use basic maths to make soccer predictions",
+  "description": "A JS library that predicts soccer match outcomes using basic mathematics",
   "main": "lib/index.js",
   "scripts": {
     "lint": "standard --verbose | snazzy",
