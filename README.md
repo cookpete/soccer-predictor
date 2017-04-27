@@ -1,5 +1,10 @@
 # Soccer Predictor
 
+[![Latest npm version](https://img.shields.io/npm/v/soccer-predictor.svg)](https://www.npmjs.com/package/soccer-predictor)
+[![Build Status](https://img.shields.io/travis/CookPete/soccer-predictor/master.svg)](https://travis-ci.org/CookPete/soccer-predictor)
+[![Dependency Status](https://img.shields.io/david/CookPete/soccer-predictor.svg)](https://david-dm.org/CookPete/soccer-predictor)
+[![devDependency Status](https://img.shields.io/david/dev/CookPete/soccer-predictor.svg)](https://david-dm.org/CookPete/soccer-predictor?type=dev)
+
 A JS library that predicts soccer match outcomes using basic mathematics.
 
 ## Installation
