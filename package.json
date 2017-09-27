@@ -1,6 +1,6 @@
 {
   "name": "soccer-predictor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A JS library that predicts soccer match outcomes using basic mathematics",
   "main": "lib/index.js",
   "scripts": {
