@@ -4,6 +4,7 @@
 [![Build Status](https://img.shields.io/travis/CookPete/soccer-predictor/master.svg)](https://travis-ci.org/CookPete/soccer-predictor)
 [![Dependency Status](https://img.shields.io/david/CookPete/soccer-predictor.svg)](https://david-dm.org/CookPete/soccer-predictor)
 [![devDependency Status](https://img.shields.io/david/dev/CookPete/soccer-predictor.svg)](https://david-dm.org/CookPete/soccer-predictor?type=dev)
+[![Test Coverage](https://img.shields.io/codecov/c/github/cookpete/soccer-predictor.svg)](https://codecov.io/gh/CookPete/soccer-predictor)
 
 A JS library that predicts soccer match outcomes using basic mathematics.
 
@@ -56,7 +57,7 @@ function getMatchDetails (match) {
 // Parse results into an array of teams with calculated stats
 const teams = analyseResults(results, getMatchDetails)
 
-// Use calculateProbabilities to calculate the chance of 
+// Use calculateProbabilities to calculate the chance of
 // various outcomes of a match between two teams
 const probabilities = calculateProbabilities(teams[0], teams[1])
 
