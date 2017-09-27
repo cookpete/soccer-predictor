@@ -10,6 +10,7 @@
     "clean": "rm -rf lib",
     "build": "babel src -d lib",
     "preversion": "npm run lint && npm run test",
+    "version": "auto-changelog --package --template compact && git add CHANGELOG.md",
     "prepublish": "npm run build",
     "postpublish": "npm run clean"
   },
@@ -20,6 +21,7 @@
   "author": "Pete Cook <pete@cookpete.com> (http://github.com/cookpete)",
   "license": "CC0-1.0",
   "devDependencies": {
+    "auto-changelog": "^0.3.3",
     "babel-cli": "^6.14.0",
     "babel-core": "^6.14.0",
     "babel-eslint": "^7.2.2",

@@ -117,7 +117,7 @@ array-unique@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/array-unique/-/array-unique-0.2.1.tgz#a1d97ccafcbc2625cc70fadceb36a50c58b01a53"
 
-array.prototype.find@^2.0.1:
+array.prototype.find@^2.0.0, array.prototype.find@^2.0.1:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/array.prototype.find/-/array.prototype.find-2.0.4.tgz#556a5c5362c08648323ddaeb9de9d14bc1864c90"
   dependencies:
@@ -155,6 +155,15 @@ async@^1.4.0:
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
+
+auto-changelog@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/auto-changelog/-/auto-changelog-0.3.3.tgz#d756185266bf0d2a7fce597b5bd28d615d178ae4"
+  dependencies:
+    array.prototype.find "^2.0.0"
+    commander "^2.9.0"
+    parse-github-url "^1.0.0"
+    semver "^5.1.0"
 
 aws-sign2@~0.6.0:
   version "0.6.0"
@@ -1065,6 +1074,10 @@ commander@2.9.0, commander@^2.8.1:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.9.0.tgz#9c99094176e12240cb22d6c5146098400fe0f7d4"
   dependencies:
     graceful-readlink ">= 1.0.0"
+
+commander@^2.9.0:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -2620,6 +2633,10 @@ p-locate@^2.0.0:
   dependencies:
     p-limit "^1.1.0"
 
+parse-github-url@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/parse-github-url/-/parse-github-url-1.0.0.tgz#d0c50b592d5a252c61a8540a421dfe8e571cf45a"
+
 parse-glob@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/parse-glob/-/parse-glob-3.0.4.tgz#b2c376cfb11f35513badd173ef0bb6e3a388391c"
@@ -2999,7 +3016,7 @@ safe-buffer@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.0.1.tgz#d263ca54696cd8a306b5ca6551e92de57918fbe7"
 
-"semver@2 || 3 || 4 || 5":
+"semver@2 || 3 || 4 || 5", semver@^5.1.0:
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
 
